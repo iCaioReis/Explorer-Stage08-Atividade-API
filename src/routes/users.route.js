@@ -5,8 +5,14 @@ const UsersController = require ("../controllers/UsersController")
 const usersRoutes = Router();
 
 
-function middleware() {
+function middleware(req, res, next) {
     console.log("Voce passou pelo middleware")
+
+    if(!req.body.isAdmin){
+        return res.json({message: "User unauthorized"})
+    }
+
+    next()
 }
 
 
