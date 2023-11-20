@@ -1,5 +1,6 @@
 const express = require ("express");
 
+const database = require ("./database/sqlite");
 const AppError = require("./utils/AppError.js");
 
 const routes = require ('./routes');
@@ -8,6 +9,8 @@ const app = express();
 app.use(express.json());
 
 app.use(routes);
+
+database();
 
 app.use(( error, req, res, next) => {
     if(error instanceof AppError){
