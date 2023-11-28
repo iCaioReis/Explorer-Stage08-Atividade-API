@@ -1,4 +1,4 @@
-const { hash, compare } = require("bcryptjs");
+const { hash, compare } = require("bcryptjs"); //Depêndencia utilizada para encriptar senhas e compará-las após criptografadas
 const AppError = require("../utils/AppError");
 
 const sqliteConnection = require("../database/sqlite");

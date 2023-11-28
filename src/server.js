@@ -1,4 +1,4 @@
-require("express-async-errors")
+require("express-async-errors") //Gerador de erros do express
 
 const migrationRun = require ("./database/sqlite/migrations");
 const AppError = require("./utils/AppError.js");
@@ -12,8 +12,6 @@ const app = express();
 app.use(express.json());
 
 app.use(routes);
-
-
 
 app.use(( error, req, res, next) => {
     if(error instanceof AppError){
