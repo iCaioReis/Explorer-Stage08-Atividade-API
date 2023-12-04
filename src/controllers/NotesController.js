@@ -32,6 +32,7 @@ class NotesControler{
 
         res.json();
     }
+
     async show(req, res){
         const { id } = req.params;
 
@@ -45,6 +46,14 @@ class NotesControler{
             links
         })
 
+    }
+
+    async delete(req, res){
+        const { id } = req.params;
+
+        await knex("notes").where({id}).delete();
+
+        res.json();
     }
 }
 
